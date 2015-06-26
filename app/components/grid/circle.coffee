@@ -82,14 +82,12 @@ link = (scope, el,attr,vm)->
 				.node()
 				.getTotalLength()
 			l
-	setTimeout ()=>
 		lines.transition()
 			.ease 'cubic'
 			.duration 1200
 			.delay (d,i)->
-				i*5
+				1500+i*8
 			.attr 'stroke-dashoffset', 0
-		, 1000
 
 
 der = ->

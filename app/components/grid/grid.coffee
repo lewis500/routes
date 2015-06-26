@@ -66,8 +66,8 @@ link = (scope, el,attr,vm)->
 			l
 
 	lines.transition()
-		.ease 'sin'
-		.duration 800
+		.ease 'cubic'
+		.duration 500
 		.delay (d,i)->
 			i*5
 		.attr 'stroke-dashoffset', 0
