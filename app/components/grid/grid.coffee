@@ -54,22 +54,6 @@ link = (scope, el,attr,vm)->
 			class: 'route'
 			d: vm.lineFun
 
-	# g.select '.g-dots'
-	# 	.selectAll 'gDot'
-	# 	.data vm.ODs
-	# 	.enter()
-	# 	.append 'g'
-	# 	.classed 'g-OD',true
-	# 	.selectAll 'gCirc'
-	# 	.data (d)-> d
-	# 	.enter()
-	# 	.append 'circle'
-	# 	.attr
-	# 		r: .7
-	# 		class: 'dot'
-	# 		transform: (d)->
-	# 			q = {x: vm.Hor(d.x), y: vm.Ver(d.y)}
-	# 			"translate(#{q.x},#{q.y})"
 
 der = ->
 	directive = 

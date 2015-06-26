@@ -14,7 +14,7 @@ path {
 .axis path.domain {
   display: none;
 }
-rect.background {
+.background {
   fill: black;
 }
 circle.dot {
@@ -24,5 +24,5 @@ path.route {
   stroke-width: .6px;
   stroke: #b3e5fc;
   fill: none;
-  opacity: .2;
+  opacity: .4;
 }

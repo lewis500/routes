@@ -3,6 +3,7 @@ angular = require 'angular'
 d3 = require 'd3'
 app = angular.module 'mainApp', [require 'angular-material']
 	.directive 'gridDer', require './components/grid/grid'
+	.directive 'circleDer', require './components/grid/circle'
 	# .
 	# .directive 'horAxisDer', require './directives/xAxis'
 	# .directive 'verAxisDer', require './directives/yAxis'
