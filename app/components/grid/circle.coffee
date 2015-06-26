@@ -11,8 +11,8 @@ template = '''
 
 class Ctrl
 	constructor: (@scope, @el, @window)->
-		@width = 400
-		@height=400
+		@width = 500
+		@height=500
 		@mar = 
 			left: 20
 			top: 10
@@ -23,17 +23,26 @@ class Ctrl
 			.range [@height, 0]
 		H = d3.scale.linear().domain [0,50]
 			.range [0,@width]
+		samp = ->
+			t = 2*Math.PI*Math.random()
+			u = Math.random() + Math.random()
+			r = if u >1 then 2-u else u
+			res = 
+				theta: t
+				r: r * 25
+			# [r*Math.cos(t), r*Math.sin(t)]
 
 		@lines = []
-		_.range 0, 3000
+		_.range 0, 2000
 			.forEach =>
-				a = 
-					theta: Math.random()*2*Math.PI,
-					r: Math.random()*25
 
-				b = 
-					theta: Math.random()*2*Math.PI, 
-					r: Math.random()*25
+				a = samp()
+					# theta: Math.random()*2*Math.PI,
+					# r: Math.random()*25
+
+				b = samp()
+					# theta: Math.random()*2*Math.PI, 
+					# r: Math.random()*25
 
 				if Math.abs(a.theta - b.theta) < 2
 					if a.r <= b.r
@@ -52,14 +61,36 @@ link = (scope, el,attr,vm)->
 	g= d3.select el[0]
 		.select '.main'
 
-	g.select '.g-dots'
+	lines = g.select '.g-dots'
 		.selectAll 'lines'
-		.data vm.lines
+		.data vm.lines.map (d)->
+			res = 
+				line: d
+				l: 0
 		.enter()
 		.append 'path'
 		.attr
 			class: 'route'
-			d: (d)->d
+			d: (d)->d.line
+	lines.attr 'stroke-dasharray', (d)->
+			l = d3.select this
+				.node()
+				.getTotalLength()
+			"#{l},#{l}"
+		.attr 'stroke-dashoffset': (d)->
+			l = d3.select this
+				.node()
+				.getTotalLength()
+			l
+	setTimeout ()=>
+		lines.transition()
+			.ease 'cubic'
+			.duration 1200
+			.delay (d,i)->
+				i*5
+			.attr 'stroke-dashoffset', 0
+		, 1000
+
 
 der = ->
 	directive = 

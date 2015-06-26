@@ -4,8 +4,7 @@ body {
   font-family: 'Vollkorn', serif;
   padding-top: 5px;
   font-size: 17px;
-  margin-left: 7.5%;
-  width: 85%;
+  background-color: #eeeeee;
 }
 line,
 path {
@@ -24,5 +23,5 @@ path.route {
   stroke-width: .6px;
   stroke: #b3e5fc;
   fill: none;
-  opacity: .4;
+  opacity: .25;
 }

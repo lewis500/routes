@@ -11,8 +11,8 @@ template = '''
 
 class Ctrl
 	constructor: (@scope, @el, @window)->
-		@width = 400
-		@height=400
+		@width = 500
+		@height=500
 		@mar = 
 			left: 20
 			top: 10
@@ -26,7 +26,7 @@ class Ctrl
 
 		@lines = []
 		which = true
-		@ODs = _.range 0, 3000
+		@ODs = _.range 0, 2000
 			.map =>
 				d = [
 						{ x: Math.random()*50,y: Math.random()*50},
@@ -45,7 +45,7 @@ link = (scope, el,attr,vm)->
 	g= d3.select el[0]
 		.select '.main'
 
-	g.select '.g-dots'
+	lines = g.select '.g-dots'
 		.selectAll 'lines'
 		.data vm.lines
 		.enter()
@@ -53,6 +53,24 @@ link = (scope, el,attr,vm)->
 		.attr
 			class: 'route'
 			d: vm.lineFun
+
+	lines.attr 'stroke-dasharray', (d)->
+			l = d3.select this
+				.node()
+				.getTotalLength()
+			"#{l},#{l}"
+		.attr 'stroke-dashoffset': (d)->
+			l = d3.select this
+				.node()
+				.getTotalLength()
+			l
+
+	lines.transition()
+		.ease 'sin'
+		.duration 800
+		.delay (d,i)->
+			i*5
+		.attr 'stroke-dashoffset', 0
 
 
 der = ->
