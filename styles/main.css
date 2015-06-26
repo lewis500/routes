@@ -1,0 +1,28 @@
+@import "../node_modules/angular-material/angular-material.css";
+@import url(http://fonts.googleapis.com/css?family=Vollkorn:400,400italic);
+body {
+  font-family: 'Vollkorn', serif;
+  padding-top: 5px;
+  font-size: 17px;
+  margin-left: 7.5%;
+  width: 85%;
+}
+line,
+path {
+  pointer-events: none;
+}
+.axis path.domain {
+  display: none;
+}
+rect.background {
+  fill: black;
+}
+circle.dot {
+  fill: #f48fb1;
+}
+path.route {
+  stroke-width: .6px;
+  stroke: #b3e5fc;
+  fill: none;
+  opacity: .2;
+}

@@ -1,0 +1,41 @@
+
+take care of how firefox treats event
+
+delay playing until it comes into view
+
+add pause button
+
+
+give cartsim der different clippath name
+
+
+implement the new system on the cartSim plots
+
+clean up designB
+
+
+
+triangle der
+
+foreignobject der for ax label
+fo der for triangle
+
+
+oops i D'd it again
+
+make hte things play
+
+add m/s units
+
+
+add an optional transition to the shifter
+MAKE THE TOP THREE PLOTS PLAY, TOO
+
+MAKE DOTS THAT MOVE ALONG THE BOTTOM CHARTS, TOO
+
+
+
+
+SIMPLIFYING
+make one designData for dots, another for time/show/etc.
+make a directive for the 
