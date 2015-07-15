@@ -25,3 +25,11 @@ path.route {
   fill: none;
   opacity: .25;
 }
+rect.avg {
+  fill: #29b6f6;
+  stroke: none;
+  transition: all 0.05s ease-out;
+}
+svg {
+  layout: inline-block;
+}
